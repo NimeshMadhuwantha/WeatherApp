@@ -68,6 +68,10 @@ class weatherClass:
         textfield.place(x=383,y=35,width=225)
         textfield.focus()
 
+        #search button
+
+        self.search_icon=PhotoImage(file="arrow1")
+
 
 
 if __name__=="__main__":
