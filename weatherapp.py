@@ -107,6 +107,11 @@ class weatherClass:
             #maindata
 
             self.var_tempreture.config(text=f"{condition}\n{str(temp)}°C")
+            self.var_localtime.config(text=f"{local_time}\n{current_time}")
+            self.var_des.config(text=f"{description}")
+            self.var_wind.config(text=f"{wind}")
+            self.var_humidity.config(text=f"{humidity}")
+            self.var_pressure.config(text=f"{pressure}")
 
 
 
