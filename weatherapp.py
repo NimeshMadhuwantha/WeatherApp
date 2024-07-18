@@ -93,7 +93,8 @@ class weatherClass:
             current_time=local_time.strftime("%I:%M:%p")
 
             #request date
-            api="https://api.openweathermap.org/data/2.5/weather?q="+ city + "&appid=2d3b475655aa2d47bfa802b7103caff8"
+            #api="https://api.openweathermap.org/data/2.5/weather?q="+ city + "&appid=2d3b475655aa2d47bfa802b7103caff8"
+            api="https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=2d3b475655aa2d47bfa802b7103caff8"
             weather_data=requests.get(api).json()
 
             condition=weather_data['weather'][0]['main']
