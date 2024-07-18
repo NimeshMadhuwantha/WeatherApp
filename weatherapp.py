@@ -32,10 +32,10 @@ class weatherClass:
         self.var_localtime=StringVar()
 
         self.var_textcity=Label(self.root,text="",font=("times 30 bold"),fg='black',bg="#08f7f7",justify=CENTER)
-        self.var_textcity.place(x=0,y=70)
+        self.var_textcity.place(x=0,y=50)
 
         self.var_latitude=Label(self.root,text="",font=("times 12 bold"),fg='black',bg="#08f7f7",justify=CENTER)
-        self.var_latitude.place(x=0,y=70)
+        self.var_latitude.place(x=0,y=110)
 
         self.var_tempreture=Label(self.root,text="",font=("times 40 bold"),fg='black',bg="#08f7f7",justify=CENTER)
         self.var_tempreture.place(x=20,y=150)
@@ -86,13 +86,35 @@ class weatherClass:
             self.var_textcity.config(text=f"{result}")
             self.var_latitude.config(text=f"{round(location.latitude,4)}°N,{round(location.longitude,4)}°E")
 
+            #local time
+
+            home=pytz.timezone(result)
+            local_time=datetime.now(home)
+            current_time=local_time.strftime("%I:%M:%p")
+
+            #request date
+            api="https://api.openweathermap.org/data/2.5/weather?q="+ city + "&appid=2d3b475655aa2d47bfa802b7103caff8"
+            weather_data=requests.get(api).json()
+
+            condition=weather_data['weather'][0]['main']
+            description=weather_data['weather'][0]['description']
+            temp=int(weather_data['main']['temp'] -273.15)
+            pressure=weather_data['main']['pressure']
+            humidity=weather_data['main']['humidity']
+            wind=weather_data['wind']['speed']
+
+            #maindata
+
+            self.var_tempreture.config(text=f"{condition}\n{str(temp)}°C")
+
+
 
 
 
 
         except Exception as e:
             messagebox.showerror("Weather app", "Invalid Entry.....!")
-            print("utguytu")
+            print("Error")
 
     
 
