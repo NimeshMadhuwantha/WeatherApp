@@ -71,10 +71,30 @@ class weatherClass:
         #search button
 
         self.search_icon=PhotoImage(file="searchbtn.png")
-        self.myimage_icon=Button(self.root,image=self.search_icon,borderwidth=0,cursor='hand2',bg='#203243',activebackground='#203243')
+        self.myimage_icon=Button(self.root,image=self.search_icon,borderwidth=0,command=self.getweather,cursor='hand2',bg='#203243',activebackground='#203243')
         self.myimage_icon.place(x=612,y=40)
 
+    def getweather(self):
+        try:
+            city=self.var_city.get()
 
+            geolocator=Nominatim(user_agent='geopiExercises')
+            location=geolocator.geocode(city)
+            obj=TimezoneFinder()
+
+            result = obj.timezone_at(lng=location.longitude,lat=location.latitude)
+            self.var_textcity.config(text=f"{result}")
+            self.var_latitude.config(text=f"{round(location.latitude,4)}°N,{round(location.longitude,4)}°E")
+
+
+
+
+
+        except Exception as e:
+            messagebox.showerror("Weather app", "Invalid Entry.....!")
+            print("utguytu")
+
+    
 
 if __name__=="__main__":
     root=Tk()
