@@ -70,7 +70,9 @@ class weatherClass:
 
         #search button
 
-        self.search_icon=PhotoImage(file="arrow1")
+        self.search_icon=PhotoImage(file="searchbtn.png")
+        self.myimage_icon=Button(self.root,image=self.search_icon,borderwidth=0,cursor='hand2',bg='#203243',activebackground='#203243')
+        self.myimage_icon.place(x=612,y=40)
 
 
 
