@@ -113,6 +113,37 @@ class weatherClass:
             self.var_humidity.config(text=f"{humidity}")
             self.var_pressure.config(text=f"{pressure}")
 
+            if condition =='Rain':
+                print(condition=='Rain')
+                self.weather_image=PhotoImage(file="rain.png")
+                self.sign_image=Label(self.root,image=self.weather_image,bg='#203243',bd=0).place(x=450,y=100)
+            elif condition == 'Clouds':
+                self.weather_image=PhotoImage(file="cloudy.png")
+                self.sign_image=Label(self.root,image=self.weather_image,bg='#203243',bd=0).place(x=450,y=100)
+            elif condition == 'Clear':
+                self.weather_image=PhotoImage(file="clear.png")
+                self.sign_image=Label(self.root,image=self.weather_image,bg='#203243',bd=0).place(x=450,y=100)
+            elif condition == 'Overcast':
+                self.weather_image=PhotoImage(file="overcast.png")
+                self.sign_image=Label(self.root,image=self.weather_image,bg='#203243',bd=0).place(x=450,y=100)
+            elif condition == 'Smoke':
+                self.weather_image=PhotoImage(file="smoke.png")
+                self.sign_image=Label(self.root,image=self.weather_image,bg='#203243',bd=0).place(x=450,y=100)
+            elif condition == 'Haze':
+                self.weather_image=PhotoImage(file="haze.png")
+                self.sign_image=Label(self.root,image=self.weather_image,bg='#203243',bd=0).place(x=450,y=100)
+            elif condition == 'Mist':
+                self.weather_image=PhotoImage(file="Mist.png")
+                self.sign_image=Label(self.root,image=self.weather_image,bg='#203243',bd=0).place(x=450,y=100)
+            elif condition == 'Snow':
+                self.weather_image=PhotoImage(file="snow.png")
+                self.sign_image=Label(self.root,image=self.weather_image,bg='#203243',bd=0).place(x=450,y=100)
+                
+
+            
+        
+
+
 
 
 
@@ -120,7 +151,7 @@ class weatherClass:
 
         except Exception as e:
             messagebox.showerror("Weather app", "Invalid Entry.....!")
-            print("Error")
+            print(e)
 
     
 
